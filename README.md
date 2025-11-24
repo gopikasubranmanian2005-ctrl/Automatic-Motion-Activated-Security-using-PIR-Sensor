@@ -60,14 +60,43 @@ Step 7: Save Your Work
 
 
 # Code:
-
-
-
+```
+const int led = 9;
+const int sensor = 8;
+const int buzzer = 10;
+bool sensor_value ;
+bool state = false ;
+void setup()
+{
+pinMode(led,OUTPUT);
+pinMode(buzzer,OUTPUT);
+pinMode(sensor,INPUT);
+}
+void loop()
+void loop()
+{
+ sensor_value = digitalRead(sensor);
+  if(sensor_value == true){
+    state = true;
+  }
+  if(state == true){
+    digitalWrite(led,HIGH);
+    tone(buzzer,1000);
+    delay(500);
+    digitalWrite(led,LOW);
+    noTone(buzzer);
+    delay(500);
+  }
+  else
+    digitalWrite(led,LOW);
+}
+```
 # Output:
 
+<img width="962" height="690" alt="image" src="https://github.com/user-attachments/assets/ece028fb-7cae-4de0-b8bc-e33cad175c68" />
 
-
+<img width="858" height="593" alt="image" src="https://github.com/user-attachments/assets/7f374463-e874-4f89-bf93-974ff3a73a59" />
 
 # Result:
-The PIR sensor successfully detected motion and triggered the Arduino to turn ON the built-in LED. The LED remained OFF when no motion was present, confirming correct circuit and code functionality.
 
+The PIR sensor successfully detected motion and triggered the Arduino to turn ON the built-in LED. The LED remained OFF when no motion was present, confirming correct circuit and code functionality.
